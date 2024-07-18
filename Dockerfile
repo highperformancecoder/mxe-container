@@ -1,5 +1,5 @@
 FROM opensuse/leap:latest
-RUN zypper --non-interactive install autoconf automake bash bison bzip2 cmake flex gcc-32bit gcc-c++ gdk-pixbuf-devel gettext-tools git glibc-devel-32bit gperf gzip intltool libopenssl-devel libtool lzip make pango-devel pcre-devel p7zip-full patch perl perl-XML-Parser python311 python311-pip ruby sed scons unzip wget xz
+RUN zypper --non-interactive install autoconf automake bash bison bzip2 cmake flex gcc-32bit gcc-c++ gdk-pixbuf-devel gettext-tools git glibc-devel-32bit gperf gzip intltool lftp libopenssl-devel libtool lzip make pango-devel pcre-devel p7zip-full patch perl perl-XML-Parser python311 python311-pip ruby sed scons unzip wget xz
 RUN ln -sf /usr/bin/python3.11 /usr/bin/python3
 RUN ln -sf /usr/bin/python3.11 /usr/bin/python
 RUN pip3 install mako-render
