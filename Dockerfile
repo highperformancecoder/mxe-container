@@ -11,5 +11,6 @@ RUN cd mxe; make JOBS=4 -j2 MXE_TARGETS=x86_64-w64-mingw32.shared boost cairo gs
 ADD . root
 ENV PATH="/mxe/usr/bin:$PATH"
 RUN cd root; tar zxvf soci-4.0.3.tar.gz
-RUN cd root/soci-4.0.3; x86_64-w64-mingw32.shared-cmake -DSOCI_CXX11=on --install-prefix /mxe/usr/x86_64-w64-mingw32.shared/ .
-RUN cd root/soci-4.0.3; make install
+RUN cd root/soci-4.0.3; x86_64-w64-mingw32.shared-cmake -DSOCI_CXX11=on .
+RUN cd root/soci-4.0.3; make -j4 install
+RUN for i in /mxe/usr/x86_64-w64-mingw32.shared/lib/libsoci*_4_0.a; do ln -sf $i ${i%%_4_0.a}.a; done
